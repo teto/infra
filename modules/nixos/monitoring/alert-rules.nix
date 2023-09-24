@@ -4,6 +4,7 @@
     ruleGroups.srvosAlerts.alertRules =
       (lib.genAttrs [
         "borgbackup-job-github-org.service"
+        "borgbackup-job-monitoring.service"
         "borgbackup-job-nixpkgs-update.service"
       ]
         (name: {

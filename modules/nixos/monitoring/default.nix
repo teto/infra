@@ -3,6 +3,7 @@
   imports = [
     inputs.srvos.nixosModules.roles-prometheus
     ./alert-rules.nix
+    ./backup.nix
     ./grafana.nix
     ./matrix-hook.nix
     ./prometheus.nix
