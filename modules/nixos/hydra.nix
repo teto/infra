@@ -5,8 +5,9 @@
     sops.secrets.hydra-users.owner = "hydra";
 
     nix.settings.allowed-uris = [
-      "https://github.com/nix-community/"
-      "https://github.com/NixOS/"
+      "git+https:"
+      "github:"
+      "https:"
     ];
 
     # delete build logs older than 30 days
