@@ -61,6 +61,8 @@
           inputs.treefmt-nix.flakeModule
         ];
 
+        hercules-ci.github-pages.branch = "master";
+
         perSystem = { config, inputs', lib, pkgs, self', system, ... }:
           let
             defaultPlatform = pkgs.stdenv.hostPlatform.system == "x86_64-linux";
@@ -90,8 +92,9 @@
                 nixosTests-hydra = pkgs.nixosTests.hydra.hydra_unstable;
               };
 
-            packages = pkgs.lib.optionalAttrs defaultPlatform {
-              pages = pkgs.runCommand "pages"
+            hercules-ci.github-pages.settings = {
+              secretsMap.token = "token-for-pages";
+              contents = pkgs.runCommand "pages"
                 {
                   buildInputs = [ config.devShells.mkdocs.nativeBuildInputs ];
                 } ''
